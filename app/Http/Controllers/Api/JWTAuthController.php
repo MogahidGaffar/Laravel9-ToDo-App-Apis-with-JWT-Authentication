@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use JWTAuth;
+use Auth;
 use Validator;
 use App\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
@@ -72,34 +73,20 @@ class JWTAuthController extends Controller
   
     public function logout(Request $request)
     {
-        $this->validate($request, [
-            'token' => 'required'
+
+        Auth::logout();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Successfully logged out',
         ]);
-  
-        try {
-            JWTAuth::invalidate($request->token);
-  
-            return response()->json([
-                'success' => true,
-                'message' => 'User logged out successfully'
-            ]);
-        } catch (JWTException $exception) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Sorry, the user cannot be logged out'
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
+
+      
     }
   
-    public function getUser(Request $request)
+    public function getUser()
     {
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
-  
-        $user = JWTAuth::authenticate($request->token);
-  
-        return response()->json(['user' => $user]);
+
+      return response()->json(['user' => auth()->user()]);
     }
 
 }
