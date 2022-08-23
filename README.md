@@ -93,7 +93,7 @@ _Below is an example of how you can instruct your audience on installing and set
 
  1. Clone the repo
    ```sh
-  gh repo clone MogahidGaffar/laravel-repository-pattern
+ gh repo clone MogahidGaffar/laravel9_ToDoApp_jwt_Api_authentication
    ```
 2. Install NPM packages
    ```sh
