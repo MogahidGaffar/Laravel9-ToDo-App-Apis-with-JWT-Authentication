@@ -113,11 +113,6 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    php artisan serve
    ```
-   
- now Go to   
- ```sh
-http://localhost:8000/users
-   ```
 
 
 ## Contact
