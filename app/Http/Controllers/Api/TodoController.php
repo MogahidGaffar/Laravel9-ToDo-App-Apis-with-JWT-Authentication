@@ -8,8 +8,7 @@ use App\Http\Controllers\Controller;
 
 class TodoController extends Controller
 {
-    //
-
+  
     public function index()
     {
         $todos = Todo::all();
