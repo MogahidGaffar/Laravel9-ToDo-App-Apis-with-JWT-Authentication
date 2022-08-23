@@ -68,6 +68,7 @@ class JWTAuthController extends Controller
         return response()->json([
             'success' => true,
             'token' => $jwt_token,
+            'user' => JWTAuth::user(),
         ]);
     }
   
@@ -85,8 +86,8 @@ class JWTAuthController extends Controller
   
     public function getUser()
     {
-
-      return response()->json(['user' => auth()->user()]);
+        $user = JWTAuth::user();
+   return response()->json(['user' =>$user]);
     }
 
 }
